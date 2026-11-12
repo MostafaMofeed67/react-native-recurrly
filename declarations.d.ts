@@ -1,27 +1,35 @@
-// Types for static image imports, e.g. `import logo from "@/assets/images/logo.png"`.
-import type { ImageSourcePropType } from "react-native";
+// Types for static asset imports, e.g. `import logo from "@/assets/images/logo.png"`.
+// No top-level imports here: this file must stay a global script so the
+// wildcard `declare module` blocks apply project-wide.
 
 declare module "*.png" {
-  const value: ImageSourcePropType;
+  const value: import("react-native").ImageSourcePropType;
   export default value;
 }
 
 declare module "*.jpg" {
-  const value: ImageSourcePropType;
+  const value: import("react-native").ImageSourcePropType;
   export default value;
 }
 
 declare module "*.jpeg" {
-  const value: ImageSourcePropType;
+  const value: import("react-native").ImageSourcePropType;
   export default value;
 }
 
 declare module "*.gif" {
-  const value: ImageSourcePropType;
+  const value: import("react-native").ImageSourcePropType;
   export default value;
 }
 
 declare module "*.webp" {
-  const value: ImageSourcePropType;
+  const value: import("react-native").ImageSourcePropType;
   export default value;
 }
+
+declare module "*.svg" {
+  const value: any;
+  export default value;
+}
+
+declare module "*.css";

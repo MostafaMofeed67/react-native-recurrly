@@ -1,8 +1,6 @@
-import { styled } from "nativewind";
 import { Text } from "react-native";
-import { SafeAreaView as RNSaveAreaView } from "react-native-safe-area-context";
 
-const SafeAreaView = styled(RNSaveAreaView);
+import { SafeAreaView } from "@/components/SafeAreaView";
 
 const Subscriptions = () => {
   return (
