@@ -1,6 +1,6 @@
 import { Text } from "react-native";
 
-import { SafeAreaView } from "@/components/SafeAreaView";
+import { SafeAreaView } from "../../../components/SafeAreaView";
 
 const Settings = () => {
   return (

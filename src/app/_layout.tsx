@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
-import "@/global.css";
+import "../../global.css";
 
 export const unstable_settings = {
   anchor: "(tabs)",
@@ -22,6 +22,9 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
+    if (error) {
+      console.error("Failed to load fonts:", error);
+    }
     if (loaded || error) {
       SplashScreen.hideAsync();
     }
