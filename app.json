@@ -50,7 +50,9 @@
             "./assets/fonts/PlusJakartaSans-Regular.ttf"
           ]
         }
-      ]
+      ],
+      "@clerk/expo",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": false,

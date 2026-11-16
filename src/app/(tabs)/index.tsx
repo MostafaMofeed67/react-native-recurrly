@@ -1,3 +1,4 @@
+import { useUser } from "@clerk/expo";
 import {
   HOME_BALANCE,
   HOME_SUBSCRIPTIONS,
@@ -19,6 +20,11 @@ export default function App() {
   const [expandedSubscriptionId, setExpandedSubscriptionId] = useState<
     string | null
   >(null);
+  const { user } = useUser();
+  const displayName =
+    user?.firstName ||
+    user?.primaryEmailAddress?.emailAddress.split("@")[0] ||
+    HOME_USER.name;
 
   return (
     <SafeAreaView className="flex-1 bg-background p-5">
@@ -27,8 +33,13 @@ export default function App() {
           <>
             <View className="home-header">
               <View className="home-user">
-                <Image source={images.avatar} className="home-avatar" />
-                <Text className="home-user-name">{HOME_USER.name}</Text>
+                <Image
+                  source={user?.imageUrl ? { uri: user.imageUrl } : images.avatar}
+                  className="home-avatar"
+                />
+                <Text className="home-user-name" numberOfLines={1}>
+                  {displayName}
+                </Text>
               </View>
 
               <View className="border-2 border-gray-200 rounded-full size-12 justify-center items-center">
@@ -67,7 +78,7 @@ export default function App() {
               />
             </View>
 
-            <ListHeading title="Subscriptions" />
+            <ListHeading title="All Subscriptions" />
           </>
         }
         data={HOME_SUBSCRIPTIONS}

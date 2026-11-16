@@ -52,6 +52,33 @@ declare global {
   interface ListHeadingProps {
     title: string;
   }
+
+  interface AuthShellProps {
+    title: string;
+    subtitle?: string;
+    children: React.ReactNode;
+    footer?: React.ReactNode;
+  }
+
+  interface AuthButtonProps {
+    title: string;
+    onPress: () => void;
+    loading?: boolean;
+    disabled?: boolean;
+  }
+
+  interface CodeVerificationProps {
+    email: string;
+    description?: string;
+    onVerify: (code: string) => void;
+    /** Resolves to true when a new code was sent. */
+    onResend: () => Promise<boolean>;
+    onBack: () => void;
+    backLabel?: string;
+    loading: boolean;
+    serverError?: string | null;
+    formError?: string | null;
+  }
 }
 
 export {};
